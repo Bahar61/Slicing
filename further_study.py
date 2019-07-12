@@ -93,22 +93,20 @@ def custom_insert(input_list, index, value):
 
     For example:
 
-        >>> months = ['Jan', 'Mar', 'Sat']
+        >>> months = ['Jan', 'Mar']
         >>> custom_insert(months, 1, 'Feb')
         >>> months == ['Jan', 'Feb', 'Mar']
         True
 
     """
-    for i, item in enumerate(input_list):
-        input_list += item
-        while i != index:
-            input_list += value
-            i += 1
-            # continue
+    """One way to solve:"""
+    # rest_of_list = input_list[index:]
+    # input_list[index] = value
+    # input_list += rest_of_list
+    
+    """another way to solve"""
+    input_list[index:] = value, *input_list[index:]
 
-    print(input_list)
-    print(index)
-    print(value)
 
 
 def custom_remove(input_list, value):
